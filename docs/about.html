@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <title>
     
-vizcarraVirus
+About
 
   </title>
 </head>
@@ -42,66 +42,19 @@ vizcarraVirus
   <div class="container">
     
 
-<div class="text-center">
-  <h1>Casos de coronaVirus en el Peru</h1>
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<style>
-  canvas {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-</style>
 <div class="row">
-  <div class="w-100 mx-auto">
-    <div style="width: 100%;">
-      <canvas id="myChart" width="400" height="700"></canvas>
+  <div class="w-80 mx-auto">
+    <div class="card" style="width: 18rem;">
+      <img src="static/img/noticia-1585335050-vizcarra.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">He usado la base de datos del John Hopkins.</p>
+        <a href="https://coronavirus.jhu.edu/map.html">John Hopkins map</a>
+        <hr>
+        <a href="https://github.com/CSSEGISandData/COVID-19">Github John Hopkins data</a>
+      </div>
     </div>
   </div>
 </div>
-
-<script>
-
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [ "3/4/20",  "3/5/20",  "3/6/20",  "3/7/20",  "3/8/20",  "3/9/20",  "3/10/20",  "3/11/20",  "3/12/20",  "3/13/20",  "3/14/20",  "3/15/20",  "3/16/20",  "3/17/20",  "3/18/20",  "3/19/20",  "3/20/20",  "3/21/20",  "3/22/20",  "3/23/20",  "3/24/20",  "3/25/20",  "3/26/20",  "3/27/20",  "3/28/20",  "3/29/20", ],
-        datasets: [{
-            label: 'Confirmados', // Name the series
-            data: [ 0,  0,  1,  1,  6,  7,  11,  11,  15,  28,  38,  43,  86,  117,  145,  234,  234,  318,  363,  395,  416,  480,  580,  635,  671,  852, ], // Specify the data values array
-            fill: false,
-            borderColor: 'green', // Add custom color border (Line)
-            backgroundColor: 'green', // Add custom color background (Points and Fill)
-            borderWidth: 4 // Specify bar border width
-          },
-          {
-            label: 'Muertos', // Name the series
-            data: [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  3,  5,  5,  5,  7,  9,  9,  11,  16,  18, ], // Specify the data values array
-            fill: false,
-            borderColor: 'red', // Add custom color border (Line)
-            backgroundColor: 'red', // Add custom color background (Points and Fill)
-            borderWidth: 4 // Specify bar border width
-          },
-          {
-            label: 'Recuperados', // Name the series
-            data: [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  14,  16,  16,  16, ], // Specify the data values array
-            fill: false,
-            borderColor: 'blue', // Add custom color border (Line)
-            backgroundColor: 'blue', // Add custom color background (Points and Fill)
-            borderWidth: 4 // Specify bar border width
-          }
-        ]
-      },
-      options: {
-        responsive: true, // Instruct chart js to respond nicely.
-        maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
-      }
-  });
-</script>
 
   </div>
 

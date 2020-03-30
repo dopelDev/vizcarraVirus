@@ -24,5 +24,8 @@ app = Flask(__name__)
 def home():
     return render_template('home.html', head=getHead(), confirmed=getConfirmed(), deaths=getDeaths(), recovered=getRecovered())
 
+@app.route('/about.html')
+def about():
+    return render_template('about.html')
 if __name__ == '__main__':
     app.run(debug=True)
