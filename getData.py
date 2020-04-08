@@ -8,7 +8,7 @@ class dataObject():
         self.listDeaths = []
         self.listRecovered = []
         self.country = 'Peru'
-        self.path = '/home/dopel/projects/martinVirus/src/static/data/csse_covid_19_data/csse_covid_19_time_series/'
+        self.path = '/home/dopel/projects/vizcarraVirus/static/data/COVID-19/csse_covid_19_data/csse_covid_19_time_series/'
 
         self.getHead('time_series_covid19_confirmed_global.csv')
         self.listConfirmed = self.getData('time_series_covid19_confirmed_global.csv')
