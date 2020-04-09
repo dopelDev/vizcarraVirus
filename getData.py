@@ -1,5 +1,6 @@
 from csv import reader
 from json import dump
+
 class dataObject():
 
     def __init__(self):
