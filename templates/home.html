@@ -26,6 +26,13 @@ vizcarraVirus
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="w-100 mx-auto">
+    <div style="width: 100%;">
+      <canvas id="myChart2" width="400" height="300"></canvas>
+    </div>
+  </div>
+</div>
 
 <script>
 
@@ -65,5 +72,31 @@ vizcarraVirus
         maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height
       }
   });
+
+  var ctx = document.getElementById('myChart2').getContext('2d');
+  var myChart2 = new Chart(ctx,{
+    type: 'bar',
+    data: {
+      labels: [{% for item in lastWeekDays %}
+        "{{item}}",
+      {% endfor %}],
+      datasets:[{
+        label: '# muertos',
+        data: [{% for item in lastWeek %}
+          {{item}},
+        {% endfor %}],
+        backgroundColor: 'red'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  })
 </script>
 {% endblock %}
