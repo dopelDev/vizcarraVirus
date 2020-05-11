@@ -28,7 +28,6 @@ def getRecovered():
 def getLastWeek():
     lastAll = data.listDeaths
     lastWeek = []
-    lastWeekDays = []
     for i in range(-7, 0, 1):
         lastWeek.append(lastAll[i])
     return lastWeek
