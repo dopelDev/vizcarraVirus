@@ -3,46 +3,61 @@ from getData import dataObject
 
 data = dataObject()
 
+
 def getHead():
     head = data.listHeader
     return head
+
+
 def getConfirmed():
     confirmed = data.listConfirmed
     confirmed = confirmed
     return confirmed
+
+
 def getDeaths():
     deaths = data.listDeaths
     return deaths
+
+
 def getRecovered():
     recovered = data.listRecovered
     return recovered
+
 
 def getLastWeek():
     lastAll = data.listDeaths
     lastWeek = []
     lastWeekDays = []
-    for i in range(-7,0,1):
+    for i in range(-7, 0, 1):
         lastWeek.append(lastAll[i])
     return lastWeek
+
 
 def getLastWeekDays():
     listD = data.listHeader
     lastWeekDays = []
-    for i in range(-7,0,1):
+    for i in range(-7, 0, 1):
         lastWeekDays.append(str(listD[i]))
     return lastWeekDays
 
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
-    return render_template('home.html', head=getHead(), confirmed=getConfirmed(),
+    return render_template('home.html', head=getHead(),
+                           confirmed=getConfirmed(),
                            deaths=getDeaths(), recovered=getRecovered(),
-                           lastWeek=getLastWeek(), lastWeekDays=getLastWeekDays())
+                           lastWeek=getLastWeek(),
+                           lastWeekDays=getLastWeekDays())
+
 
 @app.route('/about.html')
 def about():
     return render_template('about.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
