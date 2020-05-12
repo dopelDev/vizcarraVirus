@@ -1,5 +1,5 @@
 from csv import reader
-from json import dump
+
 
 class dataObject():
 
@@ -12,9 +12,11 @@ class dataObject():
         self.path = '/home/dopel/projects/vizcarraVirus/static/data/COVID-19/csse_covid_19_data/csse_covid_19_time_series/'
 
         self.getHead('time_series_covid19_confirmed_global.csv')
-        self.listConfirmed = self.getData('time_series_covid19_confirmed_global.csv')
+        self.listConfirmed = self.getData(
+            'time_series_covid19_confirmed_global.csv')
         self.listDeaths = self.getData('time_series_covid19_deaths_global.csv')
-        self.listRecovered = self.getData('time_series_covid19_recovered_global.csv')
+        self.listRecovered = self.getData(
+            'time_series_covid19_recovered_global.csv')
 
     def getHead(self, fileName):
         dataFile = open(self.path + fileName)
@@ -25,7 +27,7 @@ class dataObject():
         listHeader = []
         for item in range(46, len(header)):
             self.listHeader.append(header[item])
-
+        return listHeader
 
     def getData(self, fileName):
         dataFile = open(self.path + fileName)
