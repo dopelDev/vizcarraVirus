@@ -29,7 +29,8 @@ def getLastWeek():
     lastAll = data.listDeaths
     lastWeek = []
     for i in range(-7, 0, 1):
-        lastWeek.append(lastAll[i])
+        death = int(lastAll[i]) - int(lastAll[i-1])
+        lastWeek.append(int(death))
     return lastWeek
 
 
