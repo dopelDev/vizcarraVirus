@@ -11,7 +11,6 @@ def getHead():
 
 def getConfirmed():
     confirmed = data.listConfirmed
-    confirmed = confirmed
     return confirmed
 
 
@@ -26,20 +25,30 @@ def getRecovered():
 
 
 def getLastWeek():
-    lastAll = data.listDeaths
+    tempList = data.listDeaths
     lastWeek = []
     for i in range(-7, 0, 1):
-        death = int(lastAll[i]) - int(lastAll[i-1])
+        death = int(tempList[i]) - int(tempList[i-1])
         lastWeek.append(int(death))
     return lastWeek
 
 
 def getLastWeekDays():
-    listD = data.listHeader
+    tempList = data.listHeader
     lastWeekDays = []
     for i in range(-7, 0, 1):
-        lastWeekDays.append(str(listD[i]))
+        lastWeekDays.append(str(tempList[i]))
     return lastWeekDays
+
+
+def getBeforeLastWeek():
+    tempList = data.listDeaths
+    beforeLastWeek = []
+    for i in range(-14, -7, 1):
+        death = int(tempList[i]) - int(tempList[i-1])
+        beforeLastWeek.append(death)
+
+    return beforeLastWeek
 
 
 app = Flask(__name__)
@@ -51,7 +60,8 @@ def home():
                            confirmed=getConfirmed(),
                            deaths=getDeaths(), recovered=getRecovered(),
                            lastWeek=getLastWeek(),
-                           lastWeekDays=getLastWeekDays())
+                           lastWeekDays=getLastWeekDays(),
+                           beforeLastWeek=getBeforeLastWeek())
 
 
 @app.route('/about.html')

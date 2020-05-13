@@ -75,30 +75,35 @@ vizcarraVirus
         maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height
       }
   });
+  var LABELS = [{% for item in lastWeekDays %}
+                "{{item}}",
+                {% endfor %}];
+  var LASTWEEK = [{% for item in lastWeek%}
+                  {{item}},
+                  {% endfor %}];
+  var BEFORELASTWEEK = [{% for item in beforeLastWeek %}
+                        {{item}},
+                        {% endfor%}];
 
   var ctx = document.getElementById('myChart2').getContext('2d');
   var myChart2 = new Chart(ctx,{
     type: 'bar',
     data: {
-      labels: [{% for item in lastWeekDays %}
-        "{{item}}",
-      {% endfor %}],
+      labels: LABELS,
       datasets:[{
-        label: '# muertos',
-        data: [{% for item in lastWeek %}
-          {{item}},
-        {% endfor %}],
+        label: 'Muertos esta semana',
+        data: LASTWEEK,
         backgroundColor: 'red'
-      }]
+      },
+      {
+        label: "Muestos de la semana pasada",
+        data: BEFORELASTWEEK,
+        backgroundColor: 'blue'
+      },]
     },
     options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
+      responsive: true,
+      maintainAspectRatio: true,
     }
   })
 </script>
