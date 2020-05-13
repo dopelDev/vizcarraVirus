@@ -111,54 +111,71 @@ vizcarraVirus
         maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height
       }
   });
+  var LABELS = [
+                "5/5/20",
+                
+                "5/6/20",
+                
+                "5/7/20",
+                
+                "5/8/20",
+                
+                "5/9/20",
+                
+                "5/10/20",
+                
+                "5/11/20",
+                ];
+  var LASTWEEK = [
+                  100,
+                  
+                  89,
+                  
+                  94,
+                  
+                  87,
+                  
+                  100,
+                  
+                  75,
+                  
+                  72,
+                  ];
+  var BEFORELASTWEEK = [
+                        72,
+                        
+                        89,
+                        
+                        108,
+                        
+                        73,
+                        
+                        76,
+                        
+                        86,
+                        
+                        58,
+                        ];
 
   var ctx = document.getElementById('myChart2').getContext('2d');
   var myChart2 = new Chart(ctx,{
     type: 'bar',
     data: {
-      labels: [
-        "5/5/20",
-      
-        "5/6/20",
-      
-        "5/7/20",
-      
-        "5/8/20",
-      
-        "5/9/20",
-      
-        "5/10/20",
-      
-        "5/11/20",
-      ],
+      labels: LABELS,
       datasets:[{
-        label: '# muertos',
-        data: [
-          100,
-        
-          89,
-        
-          94,
-        
-          87,
-        
-          100,
-        
-          75,
-        
-          72,
-        ],
+        label: 'Muertos esta semana',
+        data: LASTWEEK,
         backgroundColor: 'red'
-      }]
+      },
+      {
+        label: "Muestos de la semana pasada",
+        data: BEFORELASTWEEK,
+        backgroundColor: 'blue'
+      },]
     },
     options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
+      responsive: true,
+      maintainAspectRatio: true,
     }
   })
 </script>
