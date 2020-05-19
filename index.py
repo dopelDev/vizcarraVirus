@@ -10,17 +10,26 @@ def getHead():
 
 
 def getConfirmed():
-    confirmed = data.listConfirmed
+    confirmed = []
+    for i in range(1, len(data.listConfirmed)):
+        tmp = int(data.listConfirmed[i]) - int(data.listConfirmed[i-1])
+        confirmed.append(tmp)
     return confirmed
 
 
 def getDeaths():
-    deaths = data.listDeaths
+    deaths = []
+    for i in range(1, len(data.listDeaths)):
+        tmp = int(data.listDeaths[i]) - int(data.listDeaths[i-1])
+        deaths.append(tmp)
     return deaths
 
 
 def getRecovered():
-    recovered = data.listRecovered
+    recovered = []
+    for i in range(1, len(data.listRecovered)):
+        tmp = int(data.listRecovered[i]) - int(data.listRecovered[i-1])
+        recovered.append(tmp)
     return recovered
 
 
@@ -51,6 +60,15 @@ def getBeforeLastWeek():
     return beforeLastWeek
 
 
+def getDoughnut():
+    doughnut = []
+    doughnut.append(data.listConfirmed[-1])
+    doughnut.append(data.listRecovered[-1])
+    doughnut.append(data.listDeaths[-1])
+
+    return doughnut
+
+
 app = Flask(__name__)
 
 
@@ -61,7 +79,8 @@ def home():
                            deaths=getDeaths(), recovered=getRecovered(),
                            lastWeek=getLastWeek(),
                            lastWeekDays=getLastWeekDays(),
-                           beforeLastWeek=getBeforeLastWeek())
+                           beforeLastWeek=getBeforeLastWeek(),
+                           doughnut=getDoughnut())
 
 
 @app.route('/about.html')

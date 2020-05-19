@@ -7,7 +7,7 @@ vizcarraVirus
 {% block content %}
 
 <div class="text-center">
-  <h1>Casos de coronaVirus en el Peru</h1>
+  <h1>Resumen dairio de casos de Covid-19 en el Peru</h1>
 </div>
 
 
@@ -27,12 +27,23 @@ vizcarraVirus
   </div>
 </div>
 <div class="text-center">
-<h1>Acumulado de muertos ultima semana</h1>
+<h1>Muertos diarios de las ultimas 2 semanas</h1>
 </div>
 <div class="row">
   <div class="w-100 mx-auto">
     <div style="width: 100%;">
       <canvas id="myChart2" width="400" height="150"></canvas>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <h1>Totales</h1>
+</div>
+
+<div class="row">
+  <div class="w-100 mx-auto">
+    <div style="width: 100%;">
+      <canvas id="myDoughnutChart" width="400" height="150"></canvas>
     </div>
   </div>
 </div>
@@ -105,6 +116,18 @@ vizcarraVirus
       responsive: true,
       maintainAspectRatio: true,
     }
-  })
+  });
+  var ctx = document.getElementById('myDoughnutChart').getContext('2d');
+  var myDoughnutChart = new Chart(ctx,{
+    type: 'doughnut',
+    data: {
+      datasets:[{
+        data: [{{ doughnut[0] }}, {{ doughnut[1] }}, {{ doughnut[2] }}],
+        backgroundColor: ['green', 'blue', 'red']
+      }],
+      labels:['Casos Confirmados', 'Recuperados', 'Muertos']
+    }
+  }
+  )
 </script>
 {% endblock %}
