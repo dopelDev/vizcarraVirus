@@ -120,6 +120,13 @@ vizcarraVirus
       options: {
         responsive: true, // Instruct chart js to respond nicely.
         maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
       }
   });
   var LABELS = [
@@ -187,6 +194,13 @@ vizcarraVirus
     options: {
       responsive: true,
       maintainAspectRatio: true,
+      scales:{
+        yAxes:[{
+          ticks:{
+            beginAtZero: true
+          }
+        }]
+      }
     }
   });
   var ctx = document.getElementById('myDoughnutChart').getContext('2d');
