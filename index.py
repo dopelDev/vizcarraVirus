@@ -11,25 +11,34 @@ def getHead():
 
 def getConfirmed():
     confirmed = []
-    for i in range(1, len(data.listConfirmed)):
-        tmp = int(data.listConfirmed[i]) - int(data.listConfirmed[i-1])
-        confirmed.append(tmp)
+    for i in range(0, len(data.listConfirmed)):
+        if i == 0:
+            confirmed.append(data.listConfirmed[i])
+        else:
+            tmp = int(data.listConfirmed[i]) - int(data.listConfirmed[i-1])
+            confirmed.append(tmp)
     return confirmed
 
 
 def getDeaths():
     deaths = []
-    for i in range(1, len(data.listDeaths)):
-        tmp = int(data.listDeaths[i]) - int(data.listDeaths[i-1])
-        deaths.append(tmp)
+    for i in range(0, len(data.listDeaths)):
+        if i == 0:
+            deaths.append(data.listDeaths[i])
+        else:
+            tmp = int(data.listDeaths[i]) - int(data.listDeaths[i-1])
+            deaths.append(tmp)
     return deaths
 
 
 def getRecovered():
     recovered = []
-    for i in range(1, len(data.listRecovered)):
-        tmp = int(data.listRecovered[i]) - int(data.listRecovered[i-1])
-        recovered.append(tmp)
+    for i in range(0, len(data.listRecovered)):
+        if i == 0:
+            recovered.append(data.listRecovered[i])
+        else:
+            tmp = int(data.listRecovered[i]) - int(data.listRecovered[i-1])
+            recovered.append(tmp)
     return recovered
 
 
